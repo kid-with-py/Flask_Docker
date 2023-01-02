@@ -1,0 +1,27 @@
+version: "3.5"
+services:
+  app-1:
+    build: ./app-1
+    image: app-1:v1
+    container_name: app-1
+    restart: always
+    ports:
+      - "5002:5002"
+    volumes:
+      - ./app-1:/app
+    networks:
+      - app-network  
+
+  app-2:
+    build: ./app-2
+    image: app-2:v1
+    container_name: app-2
+    restart: always
+    ports:
+      - "5003:5003"
+    volumes:
+      - ./app-2:/app
+    networks:
+      - app-network  
+networks:
+  app-network:
